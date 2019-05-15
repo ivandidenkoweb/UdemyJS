@@ -16,6 +16,4 @@ let appData = {
     savings: false
 };
 
-console.log(appData.expenses);
-
 alert(Number(appData.money) / 30);
