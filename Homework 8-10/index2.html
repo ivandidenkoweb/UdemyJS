@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<input id="age" value="27">
+	<script>
+	let age = document.getElementById('age');
+	function showUser(surname, name) {
+		alert("Пользователь " + surname + " " + name + ", его возраст " + this.value);
+	}
+	
+	showUser.call(age, 'Didenko', 'Ivan');
+
+	// ES6
+
+	class Options {
+		constructor(height, width, bg, fontSize, textAlign) {
+			this.height = height;
+			this.width = width;
+			this.bg = bg;
+			this.fontSize = fontSize;
+			this.textAlign = textAlign;
+		}
+		createDiv() {
+			let div = document.createElement('div');
+			div.textContent = 'Didenko Ivan';
+			div.style.height = this.height + 'px';
+			div.style.width = this.width + 'px';
+			div.style.background = this.bg;
+			div.style.fontSize = this.fontSize + 'px';
+			div.style.textAlign = this.textAlign;
+			return div;
+		}
+	}
+
+	let newDiv = new Options(30, 100, 'blue', 15, 'center');
+
+	console.log(newDiv.createDiv());
+
+	document.body.appendChild(newDiv.createDiv());
+	</script>
+</body>
+</html>
